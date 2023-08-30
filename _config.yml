@@ -1,2 +1,3 @@
 remote_theme: "dracula/gh-pages"
 title: tuudug's blog
+include: [".well-known"]
