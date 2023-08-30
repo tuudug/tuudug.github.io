@@ -1,3 +1,4 @@
 remote_theme: "dracula/gh-pages"
-title: tuudug's blog
+title: something idk
 include: [".well-known"]
+colorspace: cyan
