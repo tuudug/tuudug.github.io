@@ -1,4 +1,3 @@
 remote_theme: "dracula/gh-pages"
-title: yap
 include: [".well-known"]
 colorspace: cyan
