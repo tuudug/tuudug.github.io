@@ -2,3 +2,13 @@ remote_theme: "dracula/gh-pages"
 include: [".well-known"]
 title: " "
 colorspace: cyan
+
+# Exclude the old index.md from processing since we're using index.html now
+exclude: ["index.md"]
+
+# Configure collections or specific settings if needed
+defaults:
+  - scope:
+      path: "blog"
+    values:
+      layout: "default"
