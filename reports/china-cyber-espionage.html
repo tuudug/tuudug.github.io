@@ -42,33 +42,22 @@
             font-weight: 300;
         }
 
-        .download-section {
+        .download-link {
             text-align: center;
-            margin-bottom: 50px;
-            padding: 30px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-            border-radius: 8px;
-            border: 1px solid #333;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
         }
 
-        .download-btn {
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-            color: #000;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
+        .download-link a {
+            color: #888;
             text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
         }
 
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.3);
+        .download-link a:hover {
+            color: #ccc;
         }
 
         .content {
@@ -166,12 +155,6 @@
         <div class="header">
             <h1 class="title">China's Cyber Espionage Against Japan</h1>
             <p class="subtitle">Comprehensive Analysis: 2020-2025 Operations</p>
-        </div>
-
-        <div class="download-section">
-            <a href="/report.md" download="china-cyber-espionage-report.md" class="download-btn">
-                📄 Download Full Report (Markdown)
-            </a>
         </div>
 
         <div class="content">
@@ -295,6 +278,10 @@
 
             <div class="highlight">
                 <p>The fundamental reality remains that China maintains strategic focus on comprehensively penetrating Japanese networks across government, defense, critical infrastructure, and advanced technology sectors. The documented operations from 2020-2025 represent the visible portion of systematic campaigns that continue daily.</p>
+            </div>
+
+            <div class="download-link">
+                <a href="/report.md" download="china-cyber-espionage-report.md">download full report (markdown)</a>
             </div>
 
         </div>
