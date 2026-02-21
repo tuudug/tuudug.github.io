@@ -121,42 +121,6 @@ a:hover {
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-.entry-header {
-  margin-bottom: 1.8rem;
-}
-
-.entry-header .date {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.9rem;
-  color: #7a7280;
-  letter-spacing: 0.03em;
-}
-
-.music-track {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.4rem;
-  margin-top: 0.6rem;
-  padding: 0.35rem 0.75rem;
-  background: #1a1520;
-  border: 1px solid #25202d;
-  border-radius: 3px;
-  font-size: 0.82rem;
-  color: #9a8aaa;
-}
-
-.music-track .note {
-  color: #b8a9c9;
-}
-
-.music-track a {
-  color: #9a8aaa;
-}
-
-.music-track a:hover {
-  color: #c4b5d5;
-}
-
 .entry-body {
   font-size: 0.95rem;
   line-height: 1.85;
@@ -179,34 +143,45 @@ a:hover {
   color: #c8c0bc;
 }
 
+/* Date line — rendered from *Written at ...* as first <p><em> */
+.entry-body > p:first-child {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  color: #7a7280;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.6rem;
+}
+
+.entry-body > p:first-child em {
+  font-style: normal;
+  color: #7a7280;
+}
+
+/* Music track — rendered from ##### ♪ ... as <h5> */
+.entry-body > h5 {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: #1a1520;
+  border: 1px solid #25202d;
+  border-radius: 3px;
+  font-size: 0.82rem;
+  font-weight: normal;
+  color: #9a8aaa;
+  margin-bottom: 1.8rem;
+}
+
+.entry-body > h5 a {
+  color: #9a8aaa;
+}
+
+.entry-body > h5 a:hover {
+  color: #c4b5d5;
+}
+
 .entry-body h1 {
   font-size: 1.5rem;
   margin: 1.5rem 0 0.8rem;
   color: #e8e4e0;
-}
-
-/* ── Entry Navigation ── */
-
-.entry-nav {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #1e1a22;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.82rem;
-}
-
-.entry-nav a {
-  color: #7a7280;
-}
-
-.entry-nav a:hover {
-  color: #b8a9c9;
-}
-
-.entry-nav .disabled {
-  color: #2e2835;
 }
 
 /* ── Footer ── */

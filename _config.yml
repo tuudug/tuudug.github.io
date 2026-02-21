@@ -1,0 +1,7 @@
+include: [".well-known"]
+
+defaults:
+  - scope:
+      path: "blog/entry"
+    values:
+      layout: "entry"
