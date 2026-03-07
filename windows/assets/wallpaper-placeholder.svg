@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder XP-style wallpaper</title>
+  <desc id="desc">A simple hill and sky wallpaper placeholder intended to be replaced with the real Bliss image later.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#83c8ff"/>
+      <stop offset="55%" stop-color="#4f9ef2"/>
+      <stop offset="100%" stop-color="#2a69c9"/>
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7cd15e"/>
+      <stop offset="100%" stop-color="#2f8b2b"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0.72" cy="0.18" r="0.18">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#sunGlow)"/>
+  <path d="M0 600C180 560 310 530 500 565C710 605 860 690 1040 684C1230 677 1354 564 1600 514V900H0Z" fill="#3e9838"/>
+  <path d="M0 660C230 617 474 610 670 645C860 680 1040 758 1265 728C1395 710 1490 677 1600 625V900H0Z" fill="url(#hill)"/>
+</svg>
