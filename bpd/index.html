@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Messages</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&amp;family=Special+Elite&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-act="0">
+
+  <!-- ambient room for desktop -->
+  <div id="room" aria-hidden="true"></div>
+
+  <div id="phone">
+    <div class="phone-notch" aria-hidden="true"></div>
+
+    <!-- ======== LOCK / START SCREEN ======== -->
+    <div id="lockscreen">
+      <div class="lock-date" id="lockDate">Tuesday, October 14</div>
+      <div class="lock-time" id="lockTime">23:41</div>
+      <div class="lock-notif" id="lockNotif">
+        <div class="ln-app"><span class="ln-icon"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span> MESSAGES · now</div>
+        <div class="ln-from">Mira ♡</div>
+        <div class="ln-text">heeey ♡ you up?</div>
+      </div>
+      <div class="lock-hint">tap to open</div>
+      <div class="lock-sound-hint"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> sound on, lights off — obviously~</div>
+    </div>
+
+    <!-- ======== CHAT SCREEN ======== -->
+    <div id="screen" hidden>
+      <div id="statusbar">
+        <span id="sbTime">23:41</span>
+        <span class="sb-right">
+          <span id="sbNet">LTE</span>
+          <svg class="sb-bars" viewBox="0 0 18 12" width="18" height="12" aria-hidden="true">
+            <rect x="0" y="8" width="3" height="4" rx="0.5"/><rect x="5" y="5" width="3" height="7" rx="0.5"/>
+            <rect x="10" y="2" width="3" height="10" rx="0.5"/><rect x="15" y="0" width="3" height="12" rx="0.5" id="sbBar4"/>
+          </svg>
+          <span class="sb-batt" id="sbBatt"><i id="sbBattFill"></i></span>
+        </span>
+      </div>
+
+      <div id="chatheader">
+        <span class="ch-back"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 5.5 7 12 14.5 18.5"/></svg></span>
+        <div class="ch-avatar" id="chAvatar">M</div>
+        <div class="ch-meta">
+          <div class="ch-name" id="chName">Mira ♡</div>
+          <div class="ch-presence" id="chPresence">online</div>
+        </div>
+        <span class="ch-icons">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </span>
+        <button id="muteBtn" title="mute" aria-label="mute"></button>
+      </div>
+
+      <div id="wallpaper" aria-hidden="true"></div>
+      <div id="messages" aria-live="polite"></div>
+
+      <div id="choices"></div>
+
+      <div id="inputbar">
+        <span class="ib-plus"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <input id="ibInput" type="text" placeholder="Message" autocomplete="off" disabled>
+        <span id="ibSend" class="ib-send" hidden><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span>
+        <span class="ib-mic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></span>
+      </div>
+    </div>
+
+    <!-- ======== INCOMING CALL ======== -->
+    <div id="callscreen" hidden>
+      <div class="cs-blur"></div>
+      <div class="cs-avatar" id="csAvatar">M</div>
+      <div class="cs-name" id="csName">Mira ♡</div>
+      <div class="cs-sub" id="csSub">mobile</div>
+      <div class="cs-wave" id="csWave" hidden><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="cs-caption" id="csCaption"></div>
+      <div class="cs-buttons" id="csButtons">
+        <div class="cs-btn cs-decline" id="csDecline"><span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><em>decline</em></div>
+        <div class="cs-btn cs-answer" id="csAnswer"><span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><em>answer</em></div>
+      </div>
+    </div>
+
+    <!-- ======== FX LAYERS ======== -->
+    <canvas id="noise"></canvas>
+    <div id="blackout"></div>
+    <div id="flash"></div>
+
+    <!-- ======== END CARD ======== -->
+    <div id="endcard" hidden>
+      <div class="ec-title">SEEN</div>
+      <div class="ec-time">03:33 AM</div>
+      <div class="ec-line" id="ecLine">she was never outside.</div>
+      <button class="ec-restart" id="ecRestart">block her &amp; restart</button>
+    </div>
+  </div>
+
+  <script src="js/audio.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/story.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
