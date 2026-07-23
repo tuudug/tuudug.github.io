@@ -191,24 +191,27 @@ window.SEEN_AUDIO = (function () {
     return { stop() { try { src.stop(); } catch (e) {} } };
   }
 
-  /* flat phone-speaker whisper — the PHONE says it, so robotic is a feature */
+  /* flat phone-speaker whisper — the PHONE says it, so robotic is a feature.
+     resolves true only if speech actually finished — callers can show a
+     transcript fallback when TTS is missing, muted, or silently broken. */
   function whisper(text) {
     return new Promise(res => {
       let done = false;
-      const finish = () => { if (!done) { done = true; res(); } };
-      setTimeout(finish, 4200);
+      const finish = ok => { if (!done) { done = true; res(!!ok); } };
+      const guard = setTimeout(() => finish(false), 4200);
       try {
-        if (!('speechSynthesis' in window) || muted) return finish();
+        if (!('speechSynthesis' in window) || muted) return finish(false);
         const u = new SpeechSynthesisUtterance(text);
         u.rate = 0.62; u.pitch = 0.05; u.volume = 0.85;
         const vs = speechSynthesis.getVoices();
         const v = vs.find(v => /en(-|_)/i.test(v.lang) && /female|samantha|zira|serena/i.test(v.name)) ||
                   vs.find(v => /en(-|_)/i.test(v.lang));
         if (v) u.voice = v;
-        u.onend = finish; u.onerror = finish;
+        u.onend = () => { clearTimeout(guard); finish(true); };
+        u.onerror = () => { clearTimeout(guard); finish(false); };
         speechSynthesis.cancel();
         speechSynthesis.speak(u);
-      } catch (e) { finish(); }
+      } catch (e) { finish(false); }
     });
   }
 
